@@ -5,8 +5,9 @@ from groq import Groq
 import os
 from dotenv import load_dotenv
 
-import os; 
-groq_key = os.getenv('GROQ_API_KEY')
+load_dotenv()
+groq_key = os.getenv('GROQ_API_KEY') or st.secrets.get('GROQ_API_KEY')
+client = Groq(api_key=groq_key)
 
 st.set_page_config(
     page_title="ResearchAI",
